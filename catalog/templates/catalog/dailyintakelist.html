@@ -1,0 +1,43 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+
+    <h2>User Settings</h2>
+    {% if dailyintake_list %}
+
+    <table>
+    <tbody>
+    {% for foodinst in dailyintake_list %}
+        <p>ID: {{ foodinst.id  }}</p>
+
+      <tr>
+        <td>
+            <a href="{% url 'settings_update' foodinst.id %}">Update:
+            </a>
+        </td></tr>
+        <tr><td>max. bread:</td><td>{{ foodinst.max_bread  }}</td></tr>
+        <tr><td>max. fruit:</td><td>{{ foodinst.max_fruit }}</td></tr>
+        <tr><td>max. meat:</td><td>{{ foodinst.max_meat }}</td></tr>
+        <tr><td>max. greens:</td><td>{{ foodinst.max_greens }}</td></tr>
+        <tr><td>max. water:</td><td>{{ foodinst.max_water }}</td></tr>
+        <tr><td>max. caffeine:</td><td>{{ foodinst.max_caffeine }}</td></tr>
+
+        <tr><td>max. calories:</td><td>{{ foodinst.max_calories }}</td></tr>
+        <tr><td>max. fat:</td><td>{{ foodinst.max_fat }}</td></tr>
+        <tr><td>max. protein:</td><td>{{ foodinst.max_protein }}</td></tr>
+        <tr><td>max. iron:</td><td>{{ foodinst.max_iron }}</td></tr>
+        <tr><td>max. potassium:</td><td>{{ foodinst.max_potassium }}</td></tr>
+        <tr><td>max. magnesium:</td><td>{{ foodinst.max_magnesium }}</td></tr>
+
+        <tr><td>max. oil:</td><td>{{ foodinst.max_oil }}</td></tr>
+
+      </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+  {% else %}
+    <p>There is no food consumed yet.</p>
+  {% endif %}
+{% endblock %}

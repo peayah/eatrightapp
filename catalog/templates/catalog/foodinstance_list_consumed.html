@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>This Month's Consumed Foods</h2>
+    <table>
+        <thead><tr>
+            <td>name</td>
+            <td>calories</td>
+            <td>fat</td>
+            <td>protein</td>
+            <td>iron</td>
+            <td>potassium</td>
+            <td>magnesium</td>
+            <td>kind</td></tr></thead>
+    <tbody>
+
+  {% if foodinstance_list %}
+
+    {% for foodinst in foodinstance_list %}
+        <tr>
+        <td> {{ foodinst.consumed }}</td>
+            <td> {{ foodinst.food }}</td>
+            <td> {{ foodinst.food.calories }}</td>
+            <td> {{ foodinst.food.fat }}</td>
+            <td> {{ foodinst.food.protein }}</td>
+            <td> {{ foodinst.food.iron }}</td>
+            <td> {{ foodinst.food.potassium }}</td>
+            <td> {{ foodinst.food.magnesium }}</td>
+            <td> {{ foodinst.food.kind }}</td>
+            <td> {{ foodinst.pk }}</td>
+        </p>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There is no food instances consumed yet.</p>
+  {% endif %}
+{% endblock %}

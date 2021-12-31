@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+
+    <h2>Food List</h2>
+    {% if food_list %}
+
+    <table>
+        <thead><tr>
+            <td>name</td>
+            <td>calories</td>
+            <td>fat</td>
+            <td>protein</td>
+            <td>iron</td>
+            <td>potassium</td>
+            <td>magnesium</td>
+            <td>kind</td>
+        </tr></thead>
+    <tbody>
+    {% for foodinst in food_list %}
+      <tr>
+        <td> {{ foodinst.name }}
+        <td> {{ foodinst.timestamp }}</td>
+        <td> {{ foodinst.calories }}</td>
+        <td> {{ foodinst.fat }}</td>
+        <td> {{ foodinst.protein }}</td>
+        <td> {{ foodinst.iron }}</td>
+        <td> {{ foodinst.potassium }}</td>
+        <td> {{ foodinst.magnesium }}</td>
+        <td> {{ foodinst.kind }}</td>
+      </td>
+            </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+  {% else %}
+    <p>There is no food consumed yet.</p>
+  {% endif %}
+{% endblock %}

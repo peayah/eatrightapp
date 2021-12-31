@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<h1>Update Diet Setting</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- form variable -->
+        {{ form.as_p }}
+
+        <input type="submit" name="Submit">
+
+    </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+
+.inline-choices button,
+.inline-choices select,
+.inline-choices textarea,
+.inline-choices input,
+.inline-choices p,
+.inline-choices label {
+        height: 3em;
+        display: inline-block;
+}
+
+form {
+    margin-bottom: 1em;
+}
+
+.inline-choices label {
+    width: 4.2em;
+}
+
+.inline-choices select {
+    width: 6em;
+}
+
+.inline-choices p {
+    margin-right: 1em;
+}

@@ -1,0 +1,165 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+    {% if user.is_authenticated %}
+    {#  Content for authenticated users  #}
+
+    <h2>Consume Food</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <span class="inline-choices">
+            {{ bread_form.as_p }}
+            <input type="submit"  name = "consume_bread" value="Consume">
+        </span>
+    </form>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <span class="inline-choices">
+            {{ fruit_form.as_p }}
+            <input  type="submit" name = "consume_fruit" value="Consume">
+        </span>
+    </form>
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <span class="inline-choices">
+            {{ meat_form.as_p }}
+            <input  type="submit" name = "consume_meat" value="Consume">
+        </span>
+    </form>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <span class="inline-choices">
+            {{ greens_form.as_p }}
+            <input  type="submit" name = "consume_greens" value="Consume">
+        </span>
+    </form>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <span class="inline-choices">
+            {{ water_form.as_p }}
+            <input type="submit" name = "consume_water" value="Consume">
+        </span>
+    </form>
+
+    <form  action="" method="post">
+        {% csrf_token %}
+        <span class="inline-choices">
+            {{ caffe_form.as_p }}
+            <input type="submit" name = "consume_caffeine" value="Consume">
+        </span>
+    </form>
+
+    <form  action="" method="post">
+        {% csrf_token %}
+        <span class="inline-choices">
+            {{ oil_form.as_p }}
+            <input type="submit" name = "consume_oil" value="Consumes">
+        </span>
+    </form>
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <span class="inline-choices">
+            {{ form.as_p }}
+            <input type="submit" name = "consume_food" value="Consume">
+        </span>
+    </form>
+
+
+    <h2>Daily Consumption</h2>
+    <ul>
+    {%  for i in intake_instances %}
+        <h4>Food:</h4>
+        <p> Bread: <span {% if num_bread == 0 %}class="text-warning"{% endif %}
+                         {% if num_bread >= i.max_bread and num_bread != 0 %}class="text-danger"{% endif %}
+                         {% if num_bread <= i.max_bread and num_bread != 0 %}class="text-success"{% endif %}
+                         > {{ num_bread }} out of {{ i.max_bread}} cups. </span></p>
+
+        <p>Fruit:<span  {% if num_fruit == 0 %}class="text-warning"{% endif %}
+                        {% if num_fruit >= i.max_fruit and num_fruit != 0 %}class="text-danger"{% endif %}
+                        {% if num_fruit <= i.max_fruit and num_fruit != 0 %}class="text-success"{% endif %}
+                        > {{ num_fruit  }} out of {{ i.max_fruit}} pieces.</span></p>
+
+        <p> Meat:<span  {% if num_meat == 0 %}class="text-warning"{% endif %}
+                        {% if num_meat >= i.max_meat %}class="text-danger"{% endif %}
+                        {% if num_meat <= i.max_meat %}class="text-success"{% endif %}
+                        > {{ num_meat }} out of {{ i.max_meat}} oz.</span></p>
+
+        <p>Greens:<span {% if num_greens  == 0 %}class="text-warning"{% endif %}
+                        {% if num_greens >= i.max_greens and num_greens != 0 %}class="text-danger"{% endif %}
+                        {% if num_greens <= i.max_greens and num_greens != 0 %}class="text-success"{% endif %}
+                        > {{ num_greens }} out of {{ i.max_greens}}   cups.</span></p>
+
+        <p>Oil:<span    {% if num_oil  == 0 %}class="text-warning"{% endif %}
+                        {% if num_oil >= i.max_oil and num_oil != 0 %}class="text-danger"{% endif %}
+                        {% if num_oil <= i.max_oil and num_oil != 0 %}class="text-success"{% endif %}
+                        > {{ num_oil }} out of {{ i.max_oil}}   tbsp.</span></p>
+
+
+
+        <h4>Drinks</h4>
+        <p>Water:<span {% if num_water == 0 %}class="text-warning"{% endif %}
+                         {% if num_water >= i.max_water and num_water != 0 %}class="text-danger"{% endif %}
+                         {% if num_water <= i.max_water and num_water != 0 %}class="text-success"{% endif %}
+                         > {{num_water}} out of {{ i.max_water}}    cups.</span></p>
+
+        <p>Caffeinated Drinks:<span
+                        {% if num_coffee == 0 %}class="text-warning"{% endif %}
+                        {% if num_coffee >= i.max_caffeine and num_coffee != 0 %}class="text-danger"{% endif %}
+                        {% if num_coffee <= i.max_caffeine and num_coffee != 0 %}class="text-success"{% endif %}
+                        > {{ num_coffee}} out of {{ i.max_caffeine}} cups.</span></p>
+
+        <h4>Nutrients</h4>
+
+
+
+
+        <p>Calories:<span
+                        {% if sum_of_calories <= i.max_calories %}class="text-success"{% endif %}
+                        {% if sum_of_calories >= i.max_calories %}class="text-danger"{% endif %}>
+                        {{ sum_of_calories|floatformat }} out of {{ i.max_calories}}  mg.</span></p>
+
+
+        <p>Fat:<span
+                        {% if sum_of_fat <= i.max_fat %}class="text-success"{% endif %}
+                        {% if sum_of_fat >= i.max_fat %}class="text-danger"{% endif %}>
+                        {{ sum_of_fat|floatformat }} out of {{ i.max_fat}}  mg.</span></p>
+
+        <p>Protein:<span
+                        {% if sum_of_protein <= i.max_protein %}class="text-success"{% endif %}
+                        {% if sum_of_protein >= i.max_protein %}class="text-danger"{% endif %}>
+                        {{ sum_of_protein|floatformat }} out of {{ i.max_protein}}  mg.</span></p>
+
+        <p>Iron:<span
+                        {% if sum_of_iron <= i.max_iron %}class="text-success"{% endif %}
+                        {% if sum_of_iron >= i.max_iron %}class="text-danger"{% endif %}>
+                        {{ sum_of_iron|floatformat }} out of {{ i.max_iron}}  mg.</span></p>
+
+
+        <p>Potassium:<span
+                        {% if sum_of_potassium <= i.max_potassium %}class="text-success"{% endif %}
+                        {% if sum_of_potassium >= i.max_potassium %}class="text-danger"{% endif %}>
+                        {{ sum_of_potassium|floatformat}} out of {{ i.max_potassium}} mg.</span></p>
+
+        <p>Magnesium:<span
+                        {% if sum_of_magnesium <= i.max_magnesium %}class="text-success"{% endif %}
+                        {% if sum_of_magnesium >= i.max_magnesium %}class="text-danger"{% endif %}>
+                        {{ sum_of_magnesium|floatformat }} out of {{ i.max_magnesium}}  mg.</span></p>
+    {% endfor %}
+
+    </ul>
+        {% else %}
+
+        <p> You need to log in to use app.</p>
+    {% endif %}
+
+
+{% endblock %}

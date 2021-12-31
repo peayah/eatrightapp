@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+
+        <h2>Today's Food</h2>
+    <table>
+        <thead><tr>
+            <td>date</td>
+            <td>name</td>
+            <td>calories</td>
+            <td>fat</td>
+            <td>protein</td>
+            <td>iron</td>
+            <td>potassium</td>
+            <td>magnesium</td>
+            <td>kind</td>
+        </tr></thead>
+    <tbody>
+
+        {% for item in my_consumed %}
+            <tr>
+                    <td> {{ item.consumed }}</td>
+                    <td> {{ item.food }}</td>
+                    <td> {{ item.food.calories }}</td>
+                    <td> {{ item.food.fat }}</td>
+                    <td> {{ item.food.protein }}</td>
+                    <td> {{ item.food.iron }}</td>
+                    <td> {{ item.food.potassium }}</td>
+                    <td> {{ item.food.magnesium }}</td>
+                    <td> {{ item.food.kind }}</td>
+                     <td> {{ item.pk }}</td>
+                     <td> <a href="{% url 'foodinstance-delete' item.pk %}">
+                          -  Delete
+                     </a></td>
+            </tr>
+
+        {% endfor %}
+   </tbody>
+    </table>
+
+
+{% endblock %}
+
+

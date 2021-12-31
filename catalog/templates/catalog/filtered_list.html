@@ -1,0 +1,38 @@
+  {% extends "base_generic.html" %}
+{% block content %}
+
+  <h2>Filter Search</h2>
+     <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+
+    <h2>Results List</h2>
+    <table>
+        <thead><tr>
+            <td>name</td>
+            <td>calories</td>
+            <td>fat</td>
+            <td>protein</td>
+            <td>iron</td>
+            <td>potassium</td>
+            <td>magnesium</td>
+            <td>kind</td>
+        </tr></thead>
+    <tbody>
+    {% for foodinst in filter.qs %}
+        <tr>
+
+            <td>{{ foodinst.name }}</td>
+            <td>{{ foodinst.calories }}</td>
+            <td>{{ foodinst.fat }}</td>
+            <td>{{ foodinst.protein }}</td>
+            <td>{{ foodinst.iron }}</td>
+            <td>{{ foodinst.potassium }}</td>
+            <td>{{ foodinst.magnesium }}</td>
+            <td>{{ foodinst.kind }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

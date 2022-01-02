@@ -8,17 +8,19 @@
     </form>
 
     <h2>Results List</h2>
-    <table>
-        <thead><tr>
-            <td>name</td>
-            <td>calories</td>
-            <td>fat</td>
-            <td>protein</td>
-            <td>iron</td>
-            <td>potassium</td>
-            <td>magnesium</td>
-            <td>kind</td>
-        </tr></thead>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Fat</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Iron</th>
+            <th scope="col">Potassium</th>
+            <th scope="col">Magnesium</th>
+            <th scope="col">kind</th>
+        </tr>
+        </thead>
     <tbody>
     {% for foodinst in filter.qs %}
         <tr>

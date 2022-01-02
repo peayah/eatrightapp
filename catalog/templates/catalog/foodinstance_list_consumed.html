@@ -2,23 +2,25 @@
 
 {% block content %}
   <h2>This Month's Consumed Foods</h2>
-    <table>
-        <thead><tr>
-            <td>name</td>
-            <td>calories</td>
-            <td>fat</td>
-            <td>protein</td>
-            <td>iron</td>
-            <td>potassium</td>
-            <td>magnesium</td>
-            <td>kind</td></tr></thead>
-    <tbody>
-
+    <table class="table">
+     <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Name</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Fat</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Iron</th>
+            <th scope="col">Potassium</th>
+            <th scope="col">Magnesium</th>
+            <th scope="col">Kind</th>
+        </tr>
+         </thead>
   {% if foodinstance_list %}
-
+    <tbody>
     {% for foodinst in foodinstance_list %}
         <tr>
-        <td> {{ foodinst.consumed }}</td>
+            <td> {{ foodinst.consumed|date:'d' }}</td>
             <td> {{ foodinst.food }}</td>
             <td> {{ foodinst.food.calories }}</td>
             <td> {{ foodinst.food.fat }}</td>
@@ -27,10 +29,11 @@
             <td> {{ foodinst.food.potassium }}</td>
             <td> {{ foodinst.food.magnesium }}</td>
             <td> {{ foodinst.food.kind }}</td>
-            <td> {{ foodinst.pk }}</td>
-        </p>
+        </tr>
     {% endfor %}
-  </ul>
+      </tbody>
+  </table>
+
   {% else %}
     <p>There is no food instances consumed yet.</p>
   {% endif %}

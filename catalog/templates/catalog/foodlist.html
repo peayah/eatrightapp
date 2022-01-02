@@ -7,22 +7,22 @@
     <h2>Food List</h2>
     {% if food_list %}
 
-    <table>
+    <table class="table table-sm">
         <thead><tr>
-            <td>name</td>
-            <td>calories</td>
-            <td>fat</td>
-            <td>protein</td>
-            <td>iron</td>
-            <td>potassium</td>
-            <td>magnesium</td>
-            <td>kind</td>
-        </tr></thead>
+            <th scope="col">Name</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Fat</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Iron</th>
+            <th scope="col">Potassium</th>
+            <th scope="col">Magnesium</th>
+            <th scope="col">Kind</th>
+        </tr>
+        </thead>
     <tbody>
     {% for foodinst in food_list %}
       <tr>
         <td> {{ foodinst.name }}
-        <td> {{ foodinst.timestamp }}</td>
         <td> {{ foodinst.calories }}</td>
         <td> {{ foodinst.fat }}</td>
         <td> {{ foodinst.protein }}</td>

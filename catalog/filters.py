@@ -4,7 +4,6 @@ from .models import Food
 
 class FoodFilter(django_filters.FilterSet):
     kind = django_filters.CharFilter(lookup_expr='iexact')
-
     calories = django_filters.RangeFilter()
     fat = django_filters.RangeFilter()
     protein = django_filters.RangeFilter()

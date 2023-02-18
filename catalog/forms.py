@@ -1,11 +1,11 @@
 from django import forms
-from datetime import *
-import uuid
+# from datetime import *
+# import uuid
 from catalog.models import FoodInstance, Food
-from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _
-from django.urls import reverse_lazy
+# from django.contrib.auth.models import User
+# from django.core.exceptions import ValidationError
+# from django.utils.translation import ugettext_lazy as _
+# from django.urls import reverse_lazy
 
 
 # class ConsumeFoodForm(forms.Form):

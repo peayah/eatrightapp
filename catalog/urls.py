@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
-from django.conf.urls import url
+# from django.conf.urls import url
+from django.urls import re_path as url
+
 from django_filters.views import FilterView
 from django_filters.views import object_filter
 from .models import Food, DailyIntake
@@ -46,7 +48,6 @@ urlpatterns = [
     path('dailyintake/<slug:pk>/',
          views.DailyIntakeUpdate.as_view(),
          name='settings_update'),
-
 
 
     url(r'^list$', views.food_list),

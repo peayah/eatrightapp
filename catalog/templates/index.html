@@ -9,9 +9,9 @@
     <h2>Consume Food</h2>
     <form action="" method="post">
         {% csrf_token %}
-        <span class="inline-choices">
+        <span class="d-inline inline-choices">
             {{ bread_form.as_p }}
-            <input type="submit"  name = "consume_bread" value="Consume">
+            <input class=" d-inline" type="submit"  name = "consume_bread" value="Consume">
         </span>
     </form>
 

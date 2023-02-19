@@ -97,11 +97,19 @@ DATABASES = {
 
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
+
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'eatrightdb',
+        # 'USER': 'postres',
+        # 'PASSWORD': 'FOOD610ba?',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
+
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eatrightdb',
-        'USER': 'postres',
-        'PASSWORD': 'FOOD610ba?',
-        'HOST': 'localhost',
+        'NAME': 'de429vdt6c59s3',
+        'USER': 'wjdcfvsusulxym',
+        'PASSWORD': '8fa81a41faffcd4cdf0ed543c23e79607321bd315fa663ec59f6c43d226400fc',
+        'HOST': 'ec2-54-160-109-68.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
